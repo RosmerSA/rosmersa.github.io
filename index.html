@@ -1,227 +1,491 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Hubballi&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/v4-shims.min.js" integrity="sha512-7qQljqOcfujtn+H4jLGbhDviLED/sMZ+gnJeExpfXKLQMzuOT0/3mGaqUgbqjAPrMsDMZ/6uVNqtXuallND7WQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://kit.fontawesome.com/ef59ff814a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/CSS/styles.css">
-    <title>QUIMERA </title>
-  </head>
-  <body> 
-    <header class="header">
-      <figure class="header__logo-container"> <img src="/IMAGES/iconos-logos/descarga.png">
-        <p>	<span>quimera </span></p>
-      </figure>
-      <ul class="header__lista"> 
-        <li><a href="#">Tienda </a></li>
-        <li><a href="#nuevo"> Nuevo </a></li>
-        <li><a href="#poleras">Poleras </a></li>
-        <li><a href="#polos">Polos </a></li>
-        <li><a href="#nosotros"> Nosotros</a></li>
-      </ul>
-      <div class="header__icons"> 
-        <div class="number-articles">	
-          <p> <span>0		</span></p>
-        </div><a .car-number href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-        <div class="burger-menu"> <a href="#"><i class="fa-solid fa-bars"></i></a></div>
+<!-- =====================================================================
+     SECCIÓN RDSI (ISDN) - TRANSMISIÓN DE DATOS (UNIDAD 4)
+     ===================================================================== -->
+<section id="rdsi-section" class="rdsi-container">
+  <style>
+    /* Variables y estilos base aislados para no romper tu CSS anterior */
+    .rdsi-container {
+      --rdsi-bg: #0f172a;
+      --rdsi-card: #1e293b;
+      --rdsi-card-hover: #273549;
+      --rdsi-border: #334155;
+      --rdsi-primary: #38bdf8;
+      --rdsi-accent: #10b981;
+      --rdsi-warn: #f59e0b;
+      --rdsi-text: #f1f5f9;
+      --rdsi-muted: #94a3b8;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--rdsi-bg);
+      color: var(--rdsi-text);
+      padding: 3rem 1.5rem;
+      line-height: 1.6;
+      border-radius: 12px;
+      max-width: 1150px;
+      margin: 2rem auto;
+    }
+
+    .rdsi-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rdsi-border);
+      padding-bottom: 1.5rem;
+    }
+
+    .rdsi-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--rdsi-primary);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .rdsi-header h2 {
+      font-size: 2rem;
+      margin: 0.25rem 0 0.75rem;
+      color: #ffffff;
+    }
+
+    .rdsi-header p {
+      color: var(--rdsi-muted);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .rdsi-block {
+      background: var(--rdsi-card);
+      border: 1px solid var(--rdsi-border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .rdsi-block h3 {
+      color: var(--rdsi-primary);
+      margin-top: 0;
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Controles del Diagrama */
+    .rdsi-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 0.85rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--rdsi-border);
+    }
+
+    .rdsi-btn-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .rdsi-btn {
+      background: transparent;
+      color: var(--rdsi-muted);
+      border: 1px solid var(--rdsi-border);
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.2s ease;
+    }
+
+    .rdsi-btn.active,
+    .rdsi-btn:hover {
+      background: var(--rdsi-primary);
+      color: #0f172a;
+      border-color: var(--rdsi-primary);
+    }
+
+    /* Contenedor SVG Responsivo */
+    .rdsi-svg-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      background: #0b1120;
+      border-radius: 8px;
+      border: 1px solid var(--rdsi-border);
+      padding: 1rem 0.5rem;
+    }
+
+    .rdsi-svg-wrapper svg {
+      width: 100%;
+      min-width: 780px;
+      height: auto;
+      display: block;
+    }
+
+    .rdsi-node {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .rdsi-node:hover rect {
+      stroke: #38bdf8;
+      stroke-width: 2.5;
+    }
+
+    .rdsi-info-box {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 4px solid var(--rdsi-primary);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .rdsi-info-box strong {
+      color: var(--rdsi-primary);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Grid de tarjetas */
+    .rdsi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .rdsi-subcard {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid var(--rdsi-border);
+      border-radius: 8px;
+      padding: 1.2rem;
+    }
+
+    .rdsi-subcard h4 {
+      margin: 0 0 0.5rem;
+      color: var(--rdsi-accent);
+      font-size: 1.05rem;
+    }
+
+    .rdsi-subcard p, .rdsi-subcard ul {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--rdsi-muted);
+    }
+
+    .rdsi-subcard ul {
+      padding-left: 1.2rem;
+    }
+
+    /* Tabla Comparativa */
+    .rdsi-table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .rdsi-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+      text-align: left;
+    }
+
+    .rdsi-table th, .rdsi-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--rdsi-border);
+    }
+
+    .rdsi-table th {
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--rdsi-primary);
+      font-weight: 600;
+    }
+
+    .rdsi-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .rdsi-tag-b {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .rdsi-tag-d {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+  </style>
+
+  <!-- ENCABEZADO -->
+  <div class="rdsi-header">
+    <span class="rdsi-badge">Transmisión de Datos • Unidad 4</span>
+    <h2>Red Digital de Servicios Integrados (RDSI / ISDN)</h2>
+    <p>
+      Arquitectura extremo a extremo para la transmisión digital simultánea de voz, datos, vídeo y señalización sobre la infraestructura telefónica conmutada.
+    </p>
+  </div>
+
+  <!-- 1. DIAGRAMA DE ARQUITECTURA INTERACTIVO -->
+  <div class="rdsi-block">
+    <h3>1. Arquitectura de Referencia y Puntos de Conexión (Norma ITU-T I.411)</h3>
+    <p style="color: var(--rdsi-muted); font-size: 0.95rem;">
+      Haz clic en cualquier bloque del diagrama para inspeccionar su función técnica y su equivalencia en la simulación de Cisco Packet Tracer.
+    </p>
+
+    <div class="rdsi-controls">
+      <div class="rdsi-btn-group">
+        <button class="rdsi-btn active" onclick="setRdsiMode('BRI', this)">Acceso Básico BRI (2B+D)</button>
+        <button class="rdsi-btn" onclick="setRdsiMode('PRI', this)">Acceso Primario PRI (30B+D)</button>
       </div>
-    </header>
-    <main> 
-      <section class="section-1">
-        <div class="section-1__text-container"> 
-          <p class="name-serie">Breaking Bad</p>
-          <p class="phrase-serie">SAY MY NAME</p><a class="button" href="#nuevo">Ver colección  </a>
-        </div>
-      </section>
-      <section class="section-2" id="nuevo"> 
-        <h2>nuevas prendas</h2>
-        <div class="new-tshirts-container">
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/better-call-soul-tshirt.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">20% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Better call soul polo</span></p>
-              <p><span class="last_price">$60.00</span></p>
-              <p><span class="new_price">$45.00</span></p>
-            </div>
-          </div>
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/friends-tshirt.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">20% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Friends Polo Rosa</span></p>
-              <p><span class="last_price">$60.00</span></p>
-              <p><span class="new_price">$45.00</span></p>
-            </div>
-          </div>
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/r&amp;m-tshirt.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">20% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Rick y morty polo amarillo</span></p>
-              <p><span class="last_price">$60.00</span></p>
-              <p><span class="new_price">$45.00</span></p>
-            </div>
-          </div>
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/bojack-tshirt.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">20% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Bojack en Horsing around polo</span></p>
-              <p><span class="last_price">$60.00</span></p>
-              <p><span class="new_price">$45.00</span></p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-3" id="polos"> 
-        <h2>polos</h2>
-        <figure class="model-container"><img src="/IMAGES/normal-tshirts/Models-1.jpg" alt="chicos con polo"></figure>
-        <div class="new-tshirts-container">
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/normal-tshirts/better-call-saul-normal-tshirt.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">20% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Polo better call soul</span></p>
-              <p><span class="last_price">$60.00</span></p>
-              <p><span class="new_price">$45.00</span></p>
-            </div>
-          </div>
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/normal-tshirts/Game Of Thrones Night's Watch Womens T-Shirt.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">20% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Juego de tronos polo de dama</span></p>
-              <p><span class="last_price">$60.00</span></p>
-              <p><span class="new_price">$45.00</span></p>
-            </div>
-          </div>
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/Rick-and-morty-tshirt.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">20% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Rick polo azul marino</span></p>
-              <p><span class="last_price">$60.00</span></p>
-              <p><span class="new_price">$45.00</span></p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-4" id="poleras">
-        <h2>poleras</h2>
-        <figure class="model-container"> <img src="/IMAGES/normal-tshirts/models-3.jpg" alt="chico con polo"></figure>
-        <div class="new-tshirts-container"> 
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/poleras/Game-of-thrones-sweater.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">15% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Sueter de juego de tronos negro</span></p>
-              <p><span class="last_price">$100.00</span></p>
-              <p><span class="new_price">$85.00</span></p>
-            </div>
-          </div>
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/poleras/got-sweater2.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">15% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Sueter de juego de tronos gris</span></p>
-              <p><span class="last_price">$100.00</span></p>
-              <p><span class="new_price">$85.00</span></p>
-            </div>
-          </div>
-          <div class="item">
-            <figure class="item__photo"> <img src="/IMAGES/poleras/rick-y-morty-sweater.jpg" alt="Item"/></figure>
-            <div class="discount-container">
-              <p><span class="discount">15% OFF</span></p>
-            </div>
-            <div class="item__details">
-              <p><span class="nombre_polo">Sueter de rick y morty</span></p>
-              <p><span class="last_price">$100.00</span></p>
-              <p><span class="new_price">$85.00</span></p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-5">
-        <h2>clientes</h2>
-        <div class="container-1">
-          <div class="reviews-container"> 
-            <div class="review"> 
-              <p class="review__name"><span>Rafael</span></p>
-              <p class="review__polo-name"><span>Rick&amp;Morty polo</span></p>
-              <div class="review__stars"> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <p class="review__comment">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis quo, eaque, quia suscipit cupiditate recusandae consequuntur asperiores tenetur magnam officia tempore veritatis deleniti sapiente? Qui quia omnis asperiores veniam ut</p>
-            </div>
-            <div class="review"> 
-              <p class="review__name"><span>Jimena</span></p>
-              <p class="review__polo-name"><span>Polera juego de tronos</span></p>
-              <div class="review__stars"> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <p class="review__comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta assumenda soluta laudantium tempore nam pariatur non consectetur neque commodi amet dolor voluptas explicabo officia, magni dolorum maiores quos hic labore.</p>
-            </div>
-          </div>
-          <div class="more-reviews"> <a href="#">ver mas reseñas</a></div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer" id="nosotros"> 
-      <div class="footer__top">
+      <div id="rdsi-capacity-label" style="font-size: 0.9rem; color: var(--rdsi-accent); font-weight: 600;">
+        Capacidad útil: 144 kbps (2×64 kbps + 1×16 kbps) | Trama: 192 kbps
+      </div>
+    </div>
+
+    <div class="rdsi-svg-wrapper">
+      <svg viewBox="0 0 920 270" xmlns="http://www.w3.org/2000/svg">
+        <!-- Zonas de fondo -->
+        <rect x="10" y="10" width="545" height="250" rx="8" fill="#1e293b" fill-opacity="0.45" stroke="#334155" stroke-dasharray="4"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="12" font-weight="bold">INSTALACIÓN DEL ABONADO (USUARIO)</text>
+
+        <rect x="575" y="10" width="335" height="250" rx="8" fill="#0f172a" fill-opacity="0.7" stroke="#334155" stroke-dasharray="4"/>
+        <text x="590" y="32" fill="#94a3b8" font-size="12" font-weight="bold">RED DEL OPERADOR (CENTRAL)</text>
+
+        <!-- Líneas de Conexión y Puntos de Referencia -->
+        <!-- Punto R -->
+        <line x1="125" y1="85" x2="180" y2="85" stroke="#94a3b8" stroke-width="2.5"/>
+        <circle cx="152" cy="85" r="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+        <text x="152" y="89" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">R</text>
+
+        <!-- Punto S (Superior e Inferior) -->
+        <line x1="285" y1="85" x2="345" y2="125" stroke="#94a3b8" stroke-width="2.5"/>
+        <line x1="285" y1="190" x2="345" y2="150" stroke="#94a3b8" stroke-width="2.5"/>
+        <circle cx="315" cy="105" r="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+        <text x="315" y="109" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">S</text>
+        <circle cx="315" cy="170" r="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+        <text x="315" y="174" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">S</text>
+
+        <!-- Punto T -->
+        <line x1="435" y1="138" x2="480" y2="138" stroke="#94a3b8" stroke-width="2.5"/>
+        <circle cx="457" cy="138" r="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+        <text x="457" y="142" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">T</text>
+
+        <!-- Punto U (Bucle de abonado) -->
+        <line x1="560" y1="138" x2="655" y2="138" stroke="#10b981" stroke-width="3"/>
+        <circle cx="607" cy="138" r="12" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+        <text x="607" y="142" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">U</text>
+        <text id="svg-channel-label" x="607" y="166" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">2B + D (2 hilos)</text>
+
+        <!-- Enlace Central hacia Red Troncal SS7 -->
+        <line x1="755" y1="138" x2="800" y2="138" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,3"/>
+
+        <!-- BLOQUES FUNCIONALES -->
+        <!-- TE2 -->
+        <g class="rdsi-node" onclick="showRdsiDetail('TE2')">
+          <rect x="25" y="55" width="100" height="60" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+          <text x="75" y="80" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">TE2</text>
+          <text x="75" y="98" fill="#94a3b8" font-size="10" text-anchor="middle">Tel. Analógico</text>
+        </g>
+
+        <!-- TA -->
+        <g class="rdsi-node" onclick="showRdsiDetail('TA')">
+          <rect x="180" y="55" width="105" height="60" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+          <text x="232" y="80" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">TA</text>
+          <text x="232" y="98" fill="#94a3b8" font-size="10" text-anchor="middle">Adapt. Terminal</text>
+        </g>
+
+        <!-- TE1 -->
+        <g class="rdsi-node" onclick="showRdsiDetail('TE1')">
+          <rect x="180" y="160" width="105" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="232" y="185" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">TE1</text>
+          <text x="232" y="203" fill="#94a3b8" font-size="10" text-anchor="middle">Terminal RDSI</text>
+        </g>
+
+        <!-- NT2 -->
+        <g class="rdsi-node" onclick="showRdsiDetail('NT2')">
+          <rect x="345" y="105" width="90" height="66" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="390" y="133" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">NT2</text>
+          <text x="390" y="151" fill="#94a3b8" font-size="10" text-anchor="middle">Centralita / SW</text>
+        </g>
+
+        <!-- NT1 -->
+        <g class="rdsi-node" onclick="showRdsiDetail('NT1')">
+          <rect x="480" y="105" width="80" height="66" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+          <text x="520" y="133" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">NT1</text>
+          <text x="520" y="151" fill="#94a3b8" font-size="10" text-anchor="middle">Term. Red 1</text>
+        </g>
+
+        <!-- LT / ET -->
+        <g class="rdsi-node" onclick="showRdsiDetail('ET')">
+          <rect x="655" y="100" width="100" height="76" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+          <text x="705" y="132" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">LT / ET</text>
+          <text x="705" y="150" fill="#94a3b8" font-size="10" text-anchor="middle">Central Local</text>
+        </g>
+
+        <!-- Red SS7 -->
+        <g class="rdsi-node" onclick="showRdsiDetail('SS7')">
+          <rect x="800" y="105" width="95" height="66" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="847" y="133" fill="#f59e0b" font-size="13" font-weight="bold" text-anchor="middle">Red SS7</text>
+          <text x="847" y="151" fill="#94a3b8" font-size="10" text-anchor="middle">Núcleo Troncal</text>
+        </g>
+      </svg>
+    </div>
+
+    <div id="rdsi-detail-panel" class="rdsi-info-box">
+      <strong>NT1 (Terminación de Red 1) — Capa Física (OSI 1)</strong>
+      Adapta la interfaz interna de 4 hilos del cliente (Punto T) al par trenzado de 2 hilos del bucle local del operador (Punto U). Gestiona la sincronización de bits y alimentación eléctrica. <em>En Packet Tracer se representa mediante el Router de borde con interfaz Serial.</em>
+    </div>
+  </div>
+
+  <!-- 2. CONTENIDO Y FUNCIONAMIENTO -->
+  <div class="rdsi-block">
+    <h3>2. Contenido (Estructura de Canales) y Funcionamiento</h3>
+    <div class="rdsi-grid">
+      <div class="rdsi-subcard">
+        <h4>Canales Portadores (<span class="rdsi-tag-b">Canales B</span>)</h4>
+        <p>
+          Canales digitales dúplex de <strong>64 kbps</strong> encargados de transportar la información del usuario (voz codificada PCM a 64 kbps, datos IP encapsulados en PPP/HDLC o videoconferencia) mediante conmutación de circuitos.
+        </p>
+      </div>
+      <div class="rdsi-subcard">
+        <h4>Canal de Señalización (<span class="rdsi-tag-d">Canal D</span>)</h4>
+        <p>
+          Opera a <strong>16 kbps</strong> en acceso BRI y a <strong>64 kbps</strong> en acceso PRI. Realiza señalización <em>fuera de banda</em> para establecer, mantener y liberar llamadas usando los protocolos <strong>LAPD (Q.921)</strong> en Capa 2 y <strong>Q.931</strong> en Capa 3.
+        </p>
+      </div>
+      <div class="rdsi-subcard">
+        <h4>RDSI Banda Estrecha vs. Banda Ancha</h4>
+        <p>
+          <strong>RDSI-BE:</strong> Opera sobre cobre tradicional hasta 2.048 Mbps (PRI E1).<br>
+          <strong>RDSI-BA:</strong> Evolución sobre fibra óptica y conmutación de celdas <strong>ATM</strong> para superar los 2 Mbps y soportar servicios multimedia masivos.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. EXPLICACIÓN DEL DISEÑO EN PACKET TRACER -->
+  <div class="rdsi-block">
+    <h3>3. Diseño Lógico Implementado en Cisco Packet Tracer</h3>
+    <p style="color: var(--rdsi-muted); font-size: 0.95rem;">
+      Dado que Packet Tracer no incluye módulos físicos BRI/PRI heredados, el diseño simula la topología normativa extremo a extremo conectando dos sedes a través de una <strong>Nube WAN (Central Local RDSI)</strong>:
+    </p>
+    <div class="rdsi-grid">
+      <div class="rdsi-subcard">
+        <h4>Capa Física y Enlace (Punto U)</h4>
         <ul>
-          <li>Tienda</li>
-          <li><a href="">polos </a></li>
-          <li><a href="">poleras</a></li>
-          <li><a href="">nosotros </a></li>
+          <li>Enlaces <strong>Serial DCE/DTE</strong> configurados a 64 kbps emulando el canal portador B.</li>
+          <li>Encapsulación <strong>PPP</strong> en interfaces seriales para transporte de datos entre sedes.</li>
         </ul>
+      </div>
+      <div class="rdsi-subcard">
+        <h4>Convergencia Voz + Datos (Puntos S/T)</h4>
         <ul>
-          <li> Quimera</li>
-          <li><a href="">terminos y condiciones </a></li>
-          <li><a href="">politicas</a></li>
-          <li><a href="">faq</a></li>
+          <li>Switches (<strong>NT2</strong>) configurados con <code>switchport voice vlan</code> para separar tráfico de control/voz y datos.</li>
+          <li>Routers (<strong>NT1</strong>) con servicio <code>telephony-service</code> y DHCP integrados para demostrar comunicación simultánea.</li>
         </ul>
-        <div class="form__container">
-          <ul>
-            <li>suscribirse</li>
-            <li>suscribete a nuestro y obten el 10% <br> de descuento en tu primera compra</li>
-          </ul>
-          <form class="footer__form" action="">
-            <input class="email" type="email"><br>
-            <input class="suscribete" type="submit" value="Suscribete">
-          </form>
-        </div>
       </div>
-      <div class="footer__bottom"> 
-        <p><span>® QUIMERA — TODOS LOS DERECHOS RESERVADOS</span></p>
-        <p> <span>DESARROLLADO POR: </span><a href="#" target="_blank" rel="noopener noreferrer">ROSMERJS</a></p>
-      </div>
-    </footer>
-  </body>
-</html>
+    </div>
+  </div>
+
+  <!-- 4. COMPARACIÓN RDSI VS SS7 -->
+  <div class="rdsi-block" style="margin-bottom: 0;">
+    <h3>4. Comparación Técnica: RDSI vs. Red SS7</h3>
+    <div class="rdsi-table-wrap">
+      <table class="rdsi-table">
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>RDSI (ISDN)</th>
+            <th>Red SS7 (Signaling System No. 7)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ámbito de Operación</strong></td>
+            <td><strong>Red de Acceso (Usuario – Red):</strong> Conecta al abonado final con la central local del operador.</td>
+            <td><strong>Red Troncal / Núcleo (Red – Red):</strong> Interconecta las centrales telefónicas (switches) dentro de la red del operador.</td>
+          </tr>
+          <tr>
+            <td><strong>Propósito Principal</strong></td>
+            <td>Integrar voz, datos y vídeo digital en un único acceso para el usuario final.</td>
+            <td>Controlar el establecimiento, enrutamiento, tarificación y liberación de llamadas entre centrales.</td>
+          </tr>
+          <tr>
+            <td><strong>Señalización</strong></td>
+            <td>Fuera de banda mediante el <strong>Canal D</strong> (protocolos LAPD / Q.931 o DSS1).</td>
+            <td>Por canal común totalmente independiente de los troncales de voz (nodos SSP, STP y SCP).</td>
+          </tr>
+          <tr>
+            <td><strong>Interacción</strong></td>
+            <td colspan="2">
+              Cuando un usuario inicia una llamada RDSI, envía un mensaje <code>SETUP (Q.931)</code> por su <strong>Canal D</strong> hacia la central local; la central traduce esa petición y la enruta a través de la red troncal <strong>SS7</strong> (mensajes ISUP) hasta la central de destino.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const rdsiNodesInfo = {
+      TE2: {
+        title: "TE2 (Terminal Equipo Tipo 2) — Dispositivo No-RDSI",
+        desc: "Equipos convencionales anteriores a RDSI (teléfonos analógicos, faxes G3 o terminales serie RS-232). No entienden protocolos RDSI nativos y requieren conectarse a través de un Adaptador de Terminal (TA) mediante el Punto R."
+      },
+      TA: {
+        title: "TA (Adaptador de Terminal) — Conversión de Interfaz",
+        desc: "Convierte las señales analógicas o protocolos no-RDSI provenientes del Punto R al formato digital estándar del Punto S. En Packet Tracer se representa con un adaptador Home VoIP."
+      },
+      TE1: {
+        title: "TE1 (Terminal Equipo Tipo 1) — Terminal Digital Nativo",
+        desc: "Dispositivos diseñados bajo estándar RDSI (teléfonos digitales RDSI, routers con interfaz BRI, equipos de videoconferencia). Se conectan directamente al Punto S de 4 hilos."
+      },
+      NT2: {
+        title: "NT2 (Terminación de Red 2) — Capas 2 y 3 del Abonado",
+        desc: "Realiza funciones de conmutación local, concentración y multiplexación (como una centralita digital PBX o un switch LAN empresarial). En Packet Tracer corresponde al Switch Catalyst 2960."
+      },
+      NT1: {
+        title: "NT1 (Terminación de Red 1) — Capa Física (OSI 1)",
+        desc: "Adapta la interfaz interna de 4 hilos (Punto T) al par trenzado de 2 hilos del bucle local del operador (Punto U). Gestiona la sincronización de bits y pruebas de bucle. En Packet Tracer se representa con el Router de borde."
+      },
+      ET: {
+        title: "LT / ET (Terminación de Línea y Central Local)",
+        desc: "En la central telefónica del operador, la LT cierra la capa física del bucle de abonado y la ET procesa los mensajes de señalización Q.931 del Canal D para conmutar los Canales B. En Packet Tracer equivale a la Cloud-PT."
+      },
+      SS7: {
+        title: "Red SS7 (Sistema de Señalización por Canal Común N.º 7)",
+        desc: "Red troncal de paquetes de alta fiabilidad que interconecta las centrales telefónicas entre sí (nodos SSP, STP y SCP) para enrutar llamadas, consultar bases de datos y gestionar la tarificación."
+      }
+    };
+
+    function showRdsiDetail(key) {
+      const panel = document.getElementById("rdsi-detail-panel");
+      const info = rdsiNodesInfo[key];
+      if (info && panel) {
+        panel.innerHTML = `<strong>${info.title}</strong>${info.desc}`;
+      }
+    }
+
+    function setRdsiMode(mode, btn) {
+      document.querySelectorAll(".rdsi-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const capLabel = document.getElementById("rdsi-capacity-label");
+      const svgLabel = document.getElementById("svg-channel-label");
+
+      if (mode === "BRI") {
+        capLabel.textContent = "Capacidad útil: 144 kbps (2×64 kbps + 1×16 kbps) | Trama: 192 kbps";
+        svgLabel.textContent = "2B + D (2 hilos)";
+      } else {
+        capLabel.textContent = "Capacidad útil E1: 1.984 Mbps (30×64 kbps + 1×64 kbps) | Trama: 2.048 Mbps";
+        svgLabel.textContent = "30B + D (E1 / T1)";
+      }
+    }
+  </script>
+</section>
