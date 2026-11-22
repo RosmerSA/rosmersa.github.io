@@ -3,7 +3,7 @@
      ===================================================================== -->
 <section id="rdsi-section" class="rdsi-container">
   <style>
-    /* Variables y estilos base aislados para no romper tu CSS anterior */
+    /* Variables y estilos base aislados */
     .rdsi-container {
       --rdsi-bg: #0f172a;
       --rdsi-card: #1e293b;
@@ -12,13 +12,14 @@
       --rdsi-primary: #38bdf8;
       --rdsi-accent: #10b981;
       --rdsi-warn: #f59e0b;
+      --rdsi-purple: #a855f7;
       --rdsi-text: #f1f5f9;
       --rdsi-muted: #94a3b8;
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--rdsi-bg);
       color: var(--rdsi-text);
       padding: 3rem 1.5rem;
-      line-height: 1.6;
+      line-height: 1.65;
       border-radius: 12px;
       max-width: 1150px;
       margin: 2rem auto;
@@ -51,7 +52,7 @@
 
     .rdsi-header p {
       color: var(--rdsi-muted);
-      max-width: 780px;
+      max-width: 820px;
       margin: 0 auto;
     }
 
@@ -72,6 +73,12 @@
       gap: 0.5rem;
     }
 
+    .rdsi-lead {
+      color: var(--rdsi-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
     /* Controles del Diagrama */
     .rdsi-controls {
       display: flex;
@@ -88,6 +95,7 @@
 
     .rdsi-btn-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
     }
 
@@ -164,11 +172,11 @@
       background: rgba(15, 23, 42, 0.55);
       border: 1px solid var(--rdsi-border);
       border-radius: 8px;
-      padding: 1.2rem;
+      padding: 1.25rem;
     }
 
     .rdsi-subcard h4 {
-      margin: 0 0 0.5rem;
+      margin: 0 0 0.6rem;
       color: var(--rdsi-accent);
       font-size: 1.05rem;
     }
@@ -183,6 +191,111 @@
       padding-left: 1.2rem;
     }
 
+    .rdsi-subcard li {
+      margin-bottom: 0.45rem;
+    }
+
+    /* Etiquetas de zona de color */
+    .zone-pill {
+      display: inline-block;
+      padding: 0.12rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-right: 0.35rem;
+    }
+    .zone-green { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
+    .zone-pink { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4); }
+    .zone-cyan { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.4); }
+    .zone-yellow { background: rgba(234, 179, 8, 0.2); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+
+    /* Contenedores de Capturas de Pantalla */
+    .rdsi-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .rdsi-figure {
+      margin: 0;
+      background: #0b1120;
+      border: 1px solid var(--rdsi-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rdsi-img-slot {
+      position: relative;
+      width: 100%;
+      min-height: 190px;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(30, 41, 59, 0.4),
+        rgba(30, 41, 59, 0.4) 10px,
+        rgba(15, 23, 42, 0.6) 10px,
+        rgba(15, 23, 42, 0.6) 20px
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--rdsi-border);
+    }
+
+    .rdsi-img-slot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .rdsi-img-placeholder {
+      padding: 1.25rem;
+      text-align: center;
+      color: var(--rdsi-muted);
+      font-size: 0.85rem;
+    }
+
+    .rdsi-img-placeholder code {
+      display: block;
+      margin-top: 0.4rem;
+      color: var(--rdsi-primary);
+      background: rgba(15, 23, 42, 0.8);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .rdsi-figure figcaption {
+      padding: 0.9rem 1rem;
+      font-size: 0.88rem;
+      color: var(--rdsi-muted);
+    }
+
+    .rdsi-figure figcaption strong {
+      color: #ffffff;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Bloque de código CLI */
+    .rdsi-code-box {
+      background: #0b1120;
+      border: 1px solid var(--rdsi-border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-top: 1.25rem;
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+    }
+
+    .rdsi-code-box .cmd-comment { color: #64748b; }
+    .rdsi-code-box .cmd-key { color: #38bdf8; }
+    .rdsi-code-box .cmd-val { color: #10b981; }
+
     /* Tabla Comparativa */
     .rdsi-table-wrap {
       overflow-x: auto;
@@ -192,13 +305,14 @@
     .rdsi-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       text-align: left;
     }
 
     .rdsi-table th, .rdsi-table td {
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 1rem;
       border-bottom: 1px solid var(--rdsi-border);
+      vertical-align: top;
     }
 
     .rdsi-table th {
@@ -211,15 +325,9 @@
       background: rgba(255, 255, 255, 0.02);
     }
 
-    .rdsi-tag-b {
-      color: #38bdf8;
-      font-weight: 600;
-    }
-
-    .rdsi-tag-d {
-      color: #f59e0b;
-      font-weight: 600;
-    }
+    .rdsi-tag-b { color: #38bdf8; font-weight: 600; }
+    .rdsi-tag-d { color: #f59e0b; font-weight: 600; }
+    .rdsi-tag-ss7 { color: #f59e0b; font-weight: 600; }
   </style>
 
   <!-- ENCABEZADO -->
@@ -227,15 +335,15 @@
     <span class="rdsi-badge">Transmisión de Datos • Unidad 4</span>
     <h2>Red Digital de Servicios Integrados (RDSI / ISDN)</h2>
     <p>
-      Arquitectura extremo a extremo para la transmisión digital simultánea de voz, datos, vídeo y señalización sobre la infraestructura telefónica conmutada.
+      Arquitectura extremo a extremo para la transmisión digital simultánea de voz, datos y señalización, diseño práctico con redundancia en anillo y análisis comparativo frente a la red troncal SS7.
     </p>
   </div>
 
   <!-- 1. DIAGRAMA DE ARQUITECTURA INTERACTIVO -->
   <div class="rdsi-block">
     <h3>1. Arquitectura de Referencia y Puntos de Conexión (Norma ITU-T I.411)</h3>
-    <p style="color: var(--rdsi-muted); font-size: 0.95rem;">
-      Haz clic en cualquier bloque del diagrama para inspeccionar su función técnica y su equivalencia en la simulación de Cisco Packet Tracer.
+    <p class="rdsi-lead">
+      Haz clic en cualquier bloque funcional del diagrama para inspeccionar su rol técnico y su equivalencia directa en la topología implementada en Cisco Packet Tracer.
     </p>
 
     <div class="rdsi-controls">
@@ -252,18 +360,17 @@
       <svg viewBox="0 0 920 270" xmlns="http://www.w3.org/2000/svg">
         <!-- Zonas de fondo -->
         <rect x="10" y="10" width="545" height="250" rx="8" fill="#1e293b" fill-opacity="0.45" stroke="#334155" stroke-dasharray="4"/>
-        <text x="25" y="32" fill="#94a3b8" font-size="12" font-weight="bold">INSTALACIÓN DEL ABONADO (USUARIO)</text>
+        <text x="25" y="32" fill="#94a3b8" font-size="12" font-weight="bold">INSTALACIÓN DEL ABONADO (SEDES LOCALES)</text>
 
         <rect x="575" y="10" width="335" height="250" rx="8" fill="#0f172a" fill-opacity="0.7" stroke="#334155" stroke-dasharray="4"/>
-        <text x="590" y="32" fill="#94a3b8" font-size="12" font-weight="bold">RED DEL OPERADOR (CENTRAL)</text>
+        <text x="590" y="32" fill="#94a3b8" font-size="12" font-weight="bold">RED DEL OPERADOR (INTERCONEXIÓN WAN)</text>
 
-        <!-- Líneas de Conexión y Puntos de Referencia -->
         <!-- Punto R -->
         <line x1="125" y1="85" x2="180" y2="85" stroke="#94a3b8" stroke-width="2.5"/>
         <circle cx="152" cy="85" r="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
         <text x="152" y="89" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">R</text>
 
-        <!-- Punto S (Superior e Inferior) -->
+        <!-- Punto S -->
         <line x1="285" y1="85" x2="345" y2="125" stroke="#94a3b8" stroke-width="2.5"/>
         <line x1="285" y1="190" x2="345" y2="150" stroke="#94a3b8" stroke-width="2.5"/>
         <circle cx="315" cy="105" r="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
@@ -276,59 +383,52 @@
         <circle cx="457" cy="138" r="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
         <text x="457" y="142" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">T</text>
 
-        <!-- Punto U (Bucle de abonado) -->
+        <!-- Punto U -->
         <line x1="560" y1="138" x2="655" y2="138" stroke="#10b981" stroke-width="3"/>
         <circle cx="607" cy="138" r="12" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
         <text x="607" y="142" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">U</text>
-        <text id="svg-channel-label" x="607" y="166" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">2B + D (2 hilos)</text>
+        <text id="svg-channel-label" x="607" y="166" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">2B + D (64 kbps/ch)</text>
 
         <!-- Enlace Central hacia Red Troncal SS7 -->
         <line x1="755" y1="138" x2="800" y2="138" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,3"/>
 
         <!-- BLOQUES FUNCIONALES -->
-        <!-- TE2 -->
         <g class="rdsi-node" onclick="showRdsiDetail('TE2')">
           <rect x="25" y="55" width="100" height="60" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
           <text x="75" y="80" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">TE2</text>
-          <text x="75" y="98" fill="#94a3b8" font-size="10" text-anchor="middle">Tel. Analógico</text>
+          <text x="75" y="98" fill="#94a3b8" font-size="10" text-anchor="middle">Equipo No-RDSI</text>
         </g>
 
-        <!-- TA -->
         <g class="rdsi-node" onclick="showRdsiDetail('TA')">
           <rect x="180" y="55" width="105" height="60" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
           <text x="232" y="80" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">TA</text>
           <text x="232" y="98" fill="#94a3b8" font-size="10" text-anchor="middle">Adapt. Terminal</text>
         </g>
 
-        <!-- TE1 -->
         <g class="rdsi-node" onclick="showRdsiDetail('TE1')">
           <rect x="180" y="160" width="105" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
           <text x="232" y="185" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">TE1</text>
-          <text x="232" y="203" fill="#94a3b8" font-size="10" text-anchor="middle">Terminal RDSI</text>
+          <text x="232" y="203" fill="#94a3b8" font-size="10" text-anchor="middle">PC / IP Phone</text>
         </g>
 
-        <!-- NT2 -->
         <g class="rdsi-node" onclick="showRdsiDetail('NT2')">
           <rect x="345" y="105" width="90" height="66" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
           <text x="390" y="133" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">NT2</text>
-          <text x="390" y="151" fill="#94a3b8" font-size="10" text-anchor="middle">Centralita / SW</text>
+          <text x="390" y="151" fill="#94a3b8" font-size="10" text-anchor="middle">Switch 2960</text>
         </g>
 
-        <!-- NT1 -->
         <g class="rdsi-node" onclick="showRdsiDetail('NT1')">
           <rect x="480" y="105" width="80" height="66" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
           <text x="520" y="133" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">NT1</text>
-          <text x="520" y="151" fill="#94a3b8" font-size="10" text-anchor="middle">Term. Red 1</text>
+          <text x="520" y="151" fill="#94a3b8" font-size="10" text-anchor="middle">Router 2811</text>
         </g>
 
-        <!-- LT / ET -->
         <g class="rdsi-node" onclick="showRdsiDetail('ET')">
           <rect x="655" y="100" width="100" height="76" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
           <text x="705" y="132" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">LT / ET</text>
-          <text x="705" y="150" fill="#94a3b8" font-size="10" text-anchor="middle">Central Local</text>
+          <text x="705" y="150" fill="#94a3b8" font-size="10" text-anchor="middle">Enlace WAN PPP</text>
         </g>
 
-        <!-- Red SS7 -->
         <g class="rdsi-node" onclick="showRdsiDetail('SS7')">
           <rect x="800" y="105" width="95" height="66" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
           <text x="847" y="133" fill="#f59e0b" font-size="13" font-weight="bold" text-anchor="middle">Red SS7</text>
@@ -338,8 +438,8 @@
     </div>
 
     <div id="rdsi-detail-panel" class="rdsi-info-box">
-      <strong>NT1 (Terminación de Red 1) — Capa Física (OSI 1)</strong>
-      Adapta la interfaz interna de 4 hilos del cliente (Punto T) al par trenzado de 2 hilos del bucle local del operador (Punto U). Gestiona la sincronización de bits y alimentación eléctrica. <em>En Packet Tracer se representa mediante el Router de borde con interfaz Serial.</em>
+      <strong>NT1 (Terminación de Red 1) — Capa Física (Modelo OSI 1)</strong>
+      Adapta la interfaz interna del abonado (Punto T) hacia el enlace digital externo del operador (Punto U), gestionando la sincronización de bits. <em>En nuestro diseño de Packet Tracer equivale a los Routers Cisco 2811 (ROUTER01 a ROUTER04) con tarjetas seriales HWIC-2T sincronizadas a 64 kbps.</em>
     </div>
   </div>
 
@@ -350,81 +450,235 @@
       <div class="rdsi-subcard">
         <h4>Canales Portadores (<span class="rdsi-tag-b">Canales B</span>)</h4>
         <p>
-          Canales digitales dúplex de <strong>64 kbps</strong> encargados de transportar la información del usuario (voz codificada PCM a 64 kbps, datos IP encapsulados en PPP/HDLC o videoconferencia) mediante conmutación de circuitos.
+          Canales digitales dúplex de <strong>64 kbps</strong> dedicados al transporte de información de usuario (voz digitalizada mediante modulación por impulsos codificados PCM a 64 kbps o tráfico de datos IP encapsulado en PPP/HDLC).
         </p>
       </div>
       <div class="rdsi-subcard">
         <h4>Canal de Señalización (<span class="rdsi-tag-d">Canal D</span>)</h4>
         <p>
-          Opera a <strong>16 kbps</strong> en acceso BRI y a <strong>64 kbps</strong> en acceso PRI. Realiza señalización <em>fuera de banda</em> para establecer, mantener y liberar llamadas usando los protocolos <strong>LAPD (Q.921)</strong> en Capa 2 y <strong>Q.931</strong> en Capa 3.
+          Opera a <strong>16 kbps</strong> en acceso BRI y a <strong>64 kbps</strong> en acceso PRI. Realiza señalización <em>fuera de banda</em> (separada de los datos) para establecer, supervisar y liberar conexiones mediante los protocolos <strong>LAPD (Q.921)</strong> en Capa 2 y <strong>Q.931</strong> en Capa 3.
         </p>
       </div>
       <div class="rdsi-subcard">
-        <h4>RDSI Banda Estrecha vs. Banda Ancha</h4>
+        <h4>Conmutación y Modalidades</h4>
         <p>
-          <strong>RDSI-BE:</strong> Opera sobre cobre tradicional hasta 2.048 Mbps (PRI E1).<br>
-          <strong>RDSI-BA:</strong> Evolución sobre fibra óptica y conmutación de celdas <strong>ATM</strong> para superar los 2 Mbps y soportar servicios multimedia masivos.
+          <strong>RDSI Banda Estrecha (RDSI-BE):</strong> Opera sobre pares de cobre con accesos BRI (144 kbps útiles) y PRI (hasta 2.048 Mbps en estándar E1).<br>
+          <strong>RDSI Banda Ancha (RDSI-BA):</strong> Evolución sobre fibra óptica y conmutación de celdas <strong>ATM</strong> para servicios multimedia de alta capacidad.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 3. EXPLICACIÓN DEL DISEÑO EN PACKET TRACER -->
+  <!-- 3. EXPLICACIÓN DETALLADA DEL DISEÑO REALIZADO EN PACKET TRACER -->
   <div class="rdsi-block">
-    <h3>3. Diseño Lógico Implementado en Cisco Packet Tracer</h3>
-    <p style="color: var(--rdsi-muted); font-size: 0.95rem;">
-      Dado que Packet Tracer no incluye módulos físicos BRI/PRI heredados, el diseño simula la topología normativa extremo a extremo conectando dos sedes a través de una <strong>Nube WAN (Central Local RDSI)</strong>:
+    <h3>3. Explicación Detallada del Diseño Realizado en Cisco Packet Tracer</h3>
+    <p class="rdsi-lead">
+      Para representar una arquitectura RDSI empresarial con <strong>alta disponibilidad y redundancia</strong>, se diseñó una topología distribuida en <strong>4 sucursales independientes (LAN)</strong> interconectadas mediante un <strong>anillo WAN punto a punto</strong> con cuatro routers <strong>Cisco 2811</strong>.
     </p>
+
     <div class="rdsi-grid">
       <div class="rdsi-subcard">
-        <h4>Capa Física y Enlace (Punto U)</h4>
+        <h4>A. Emulación Física y Enlace RDSI (Capa 1 y 2)</h4>
         <ul>
-          <li>Enlaces <strong>Serial DCE/DTE</strong> configurados a 64 kbps emulando el canal portador B.</li>
-          <li>Encapsulación <strong>PPP</strong> en interfaces seriales para transporte de datos entre sedes.</li>
+          <li><strong>Módulos WAN (HWIC-2T):</strong> Dado que las versiones actuales de Packet Tracer retiraron las tarjetas físicas BRI heredadas, cada router Cisco 2811 incorpora una tarjeta serial de alta velocidad <code>HWIC-2T</code> (puertos <code>Serial0/3/0</code> y <code>Serial0/3/1</code>).</li>
+          <li><strong>Sincronización a 64 kbps (Reloj DCE):</strong> En los extremos DCE de cada enlace se configuró <code>clock rate 64000</code>, replicando exactamente la velocidad digital estándar de un <strong>Canal B de RDSI (64 kbps)</strong> y la temporización provista por la operadora.</li>
+          <li><strong>Encapsulación PPP:</strong> Todos los enlaces troncales operan bajo <code>encapsulation ppp</code> (<em>Point-to-Point Protocol</em>), garantizando transporte digital síncrono punto a punto entre nodos.</li>
         </ul>
       </div>
+
       <div class="rdsi-subcard">
-        <h4>Convergencia Voz + Datos (Puntos S/T)</h4>
+        <h4>B. Topología en Anillo y Redundancia Dinámica</h4>
         <ul>
-          <li>Switches (<strong>NT2</strong>) configurados con <code>switchport voice vlan</code> para separar tráfico de control/voz y datos.</li>
-          <li>Routers (<strong>NT1</strong>) con servicio <code>telephony-service</code> y DHCP integrados para demostrar comunicación simultánea.</li>
+          <li><strong>Anillo Cerrado de 4 Nodos:</strong> Los enlaces unen <code>ROUTER01 ↔ ROUTER02 ↔ ROUTER04 ↔ ROUTER03 ↔ ROUTER01</code> mediante subredes dedicadas <code>/30</code> (2 hosts útiles por enlace).</li>
+          <li><strong>Enrutamiento OSPF (Área 0):</strong> Se implementó <em>Open Shortest Path First</em> para calcular automáticamente las rutas más cortas entre sedes.</li>
+          <li><strong>Tolerancia a Fallos Comprobada:</strong> Al deshabilitar o cortar el enlace principal <code>Serial0/3/0</code> entre <code>ROUTER01</code> y <code>ROUTER02</code>, OSPF converge en segundos y redirige el tráfico por el camino alternativo (<code>ROUTER01 → ROUTER03 → ROUTER04</code>) sin pérdida de comunicación.</li>
         </ul>
       </div>
+
+      <div class="rdsi-subcard">
+        <h4>C. Segmentación por Sedes (Zonas LAN)</h4>
+        <ul>
+          <li><span class="zone-pill zone-green">Verde</span> <strong>Sede 1 (ROUTER01):</strong> Subred <code>192.168.1.0/24</code> con <code>SWITCH 01</code>, servidor (<code>SERVER 1</code>), estación de trabajo (<code>PC 1</code>) y telefonía (<code>IP PHONE 1</code>).</li>
+          <li><span class="zone-pill zone-pink">Rosa</span> <strong>Sede 2 (ROUTER02):</strong> Subred <code>192.168.2.0/24</code> con <code>SWITCH 2</code>, <code>PC 2</code> y terminal cableado (<code>WIRED END DEVICE 2</code>).</li>
+          <li><span class="zone-pill zone-cyan">Celeste</span> <strong>Sede 3 (ROUTER03):</strong> Subred <code>192.168.3.0/24</code> con <code>SWITCH 03</code>, <code>PC 4</code> e impresora de red (<code>PRINTER 4</code>).</li>
+          <li><span class="zone-pill zone-yellow">Amarillo</span> <strong>Sede 4 (ROUTER04):</strong> Subred <code>192.168.4.0/24</code> con <code>SWITCH 04</code> y tres puestos convergentes voz/datos en cascada (<code>IP PHONE 3/4/5</code> + <code>PC4/PC5/PC6</code>).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tabla de Direccionamiento e Interfaces -->
+    <div class="rdsi-table-wrap" style="margin-top: 1.5rem;">
+      <table class="rdsi-table">
+        <thead>
+          <tr>
+            <th>Dispositivo</th>
+            <th>Interfaz LAN (FastEthernet)</th>
+            <th>Enlaces WAN (Serial HWIC-2T)</th>
+            <th>Función en la Arquitectura</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ROUTER01</strong> <span class="zone-pill zone-green">Verde</span></td>
+            <td><code>Fa0/0</code>: 192.168.1.1/24</td>
+            <td>
+              <code>Se0/3/0</code> (DCE 64k): 10.0.12.1/30 → R2<br>
+              <code>Se0/3/1</code> (DCE 64k): 10.0.13.1/30 → R3
+            </td>
+            <td>Gateway Sede 1 + Generador de reloj sincronización WAN</td>
+          </tr>
+          <tr>
+            <td><strong>ROUTER02</strong> <span class="zone-pill zone-pink">Rosa</span></td>
+            <td><code>Fa0/0</code>: 192.168.2.1/24</td>
+            <td>
+              <code>Se0/3/0</code> (DTE): 10.0.12.2/30 → R1<br>
+              <code>Se0/3/1</code> (DCE 64k): 10.0.24.1/30 → R4
+            </td>
+            <td>Gateway Sede 2 + Nodo de tránsito superior del anillo</td>
+          </tr>
+          <tr>
+            <td><strong>ROUTER03</strong> <span class="zone-pill zone-cyan">Celeste</span></td>
+            <td><code>Fa0/0</code>: 192.168.3.1/24</td>
+            <td>
+              <code>Se0/3/0</code> (DTE): 10.0.13.2/30 → R1<br>
+              <code>Se0/3/1</code> (DTE): 10.0.34.2/30 → R4
+            </td>
+            <td>Gateway Sede 3 + Ruta de respaldo inferior del anillo</td>
+          </tr>
+          <tr>
+            <td><strong>ROUTER04</strong> <span class="zone-pill zone-yellow">Amarillo</span></td>
+            <td><code>Fa0/0</code>: 192.168.4.1/24</td>
+            <td>
+              <code>Se0/3/0</code> (DTE): 10.0.24.2/30 → R2<br>
+              <code>Se0/3/1</code> (DCE 64k): 10.0.34.1/30 → R3
+            </td>
+            <td>Gateway Sede 4 + Nodo convergente voz/datos en cascada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Fragmento de configuración representativo -->
+    <div class="rdsi-code-box">
+      <span class="cmd-comment">! Ejemplo de configuración aplicada en ROUTER01 (Emulación RDSI 64 kbps + PPP + Redundancia OSPF)</span><br>
+      <span class="cmd-key">interface</span> Serial0/3/0<br>
+      &nbsp;<span class="cmd-key">ip address</span> <span class="cmd-val">10.0.12.1 255.255.255.252</span><br>
+      &nbsp;<span class="cmd-key">encapsulation</span> <span class="cmd-val">ppp</span><br>
+      &nbsp;<span class="cmd-key">clock rate</span> <span class="cmd-val">64000</span><br>
+      &nbsp;<span class="cmd-key">no shutdown</span><br>
+      <span class="cmd-key">router ospf</span> <span class="cmd-val">1</span><br>
+      &nbsp;<span class="cmd-key">network</span> <span class="cmd-val">192.168.1.0 0.0.0.255 area 0</span><br>
+      &nbsp;<span class="cmd-key">network</span> <span class="cmd-val">10.0.12.0 0.0.0.3 area 0</span><br>
+      &nbsp;<span class="cmd-key">network</span> <span class="cmd-val">10.0.13.0 0.0.0.3 area 0</span>
+    </div>
+
+    <!-- GALERÍA DE CAPTURAS DE PANTALLA DE PACKET TRACER -->
+    <h4 style="color: #ffffff; margin: 1.75rem 0 0.5rem; font-size: 1.1rem;">Evidencias de Simulación y Pruebas de Funcionamiento</h4>
+    <p style="color: var(--rdsi-muted); font-size: 0.9rem; margin: 0;">
+      Capturas obtenidas directamente del entorno de simulación en Cisco Packet Tracer verificando topología, conectividad ICMP (Ping) y conmutación por redundancia.
+    </p>
+
+    <div class="rdsi-gallery">
+      <!-- CAPTURA 1: TOPOLOGÍA COMPLETA -->
+      <figure class="rdsi-figure">
+        <div class="rdsi-img-slot">
+          <!-- REEMPLAZA src="img/topologia-rdsi.png" CON LA RUTA DE TU CAPTURA -->
+          <img src="img/topologia-rdsi.png" alt="Topología RDSI en anillo redundante en Cisco Packet Tracer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="rdsi-img-placeholder" style="display:none;">
+            Espacio para Captura 1: Diagrama completo en Packet Tracer (4 zonas + anillo serial verde)
+            <code>src="img/topologia-rdsi.png"</code>
+          </div>
+        </div>
+        <figcaption>
+          <strong>1. Topología Completa y Enlaces Activos</strong>
+          Vista general de las cuatro sedes (Verde, Rosa, Celeste y Amarilla) con todos los enlaces seriales DCE/DTE y FastEthernet operativos en estado activo (triángulos verdes).
+        </figcaption>
+      </figure>
+
+      <!-- CAPTURA 2: PRUEBA DE PING EXTREMO A EXTREMO -->
+      <figure class="rdsi-figure">
+        <div class="rdsi-img-slot">
+          <!-- REEMPLAZA src="img/prueba-ping.png" CON LA RUTA DE TU CAPTURA -->
+          <img src="img/prueba-ping.png" alt="Prueba de Ping exitoso entre PC 1 y PC4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="rdsi-img-placeholder" style="display:none;">
+            Espacio para Captura 2: Command Prompt de PC 1 haciendo ping a 192.168.4.10
+            <code>src="img/prueba-ping.png"</code>
+          </div>
+        </div>
+        <figcaption>
+          <strong>2. Conectividad Extremo a Extremo (ICMP Ping)</strong>
+          Respuesta exitosa desde <code>PC 1</code> (192.168.1.10 - Zona Verde) hacia <code>PC4</code> (192.168.4.10 - Zona Amarilla) atravesando la red WAN encapsulada en PPP.
+        </figcaption>
+      </figure>
+
+      <!-- CAPTURA 3: PRUEBA DE REDUNDANCIA (CORTE DE SERIAL 0/3/0) -->
+      <figure class="rdsi-figure">
+        <div class="rdsi-img-slot">
+          <!-- REEMPLAZA src="img/prueba-redundancia.png" CON LA RUTA DE TU CAPTURA -->
+          <img src="img/prueba-redundancia.png" alt="Prueba de redundancia apagando interfaz Serial0/3/0" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="rdsi-img-placeholder" style="display:none;">
+            Espacio para Captura 3: Enlace Serial0/3/0 caído (rojo) y ping activo por ruta alterna
+            <code>src="img/prueba-redundancia.png"</code>
+          </div>
+        </div>
+        <figcaption>
+          <strong>3. Tolerancia a Fallos y Redundancia OSPF</strong>
+          Al desactivar la interfaz <code>Serial0/3/0</code> de <code>ROUTER01</code>, OSPF recalcula la ruta por el tramo inferior (<code>ROUTER03 → ROUTER04</code>) manteniendo la conectividad sin interrupción.
+        </figcaption>
+      </figure>
     </div>
   </div>
 
   <!-- 4. COMPARACIÓN RDSI VS SS7 -->
   <div class="rdsi-block" style="margin-bottom: 0;">
-    <h3>4. Comparación Técnica: RDSI vs. Red SS7</h3>
+    <h3>4. Comparación Técnica: RDSI (ISDN) vs. Red SS7</h3>
+    <p class="rdsi-lead">
+      Aunque ambas tecnologías nacieron bajo el marco de las telecomunicaciones digitales de la UIT-T y trabajan de forma complementaria, operan en niveles distintos de la infraestructura telefónica y de datos.
+    </p>
     <div class="rdsi-table-wrap">
       <table class="rdsi-table">
         <thead>
           <tr>
-            <th>Criterio</th>
-            <th>RDSI (ISDN)</th>
-            <th>Red SS7 (Signaling System No. 7)</th>
+            <th>Dimensión Técnica</th>
+            <th>RDSI / ISDN (Red Digital de Servicios Integrados)</th>
+            <th>Red SS7 (Signaling System No. 7 / CCS7)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Ámbito de Operación</strong></td>
-            <td><strong>Red de Acceso (Usuario – Red):</strong> Conecta al abonado final con la central local del operador.</td>
-            <td><strong>Red Troncal / Núcleo (Red – Red):</strong> Interconecta las centrales telefónicas (switches) dentro de la red del operador.</td>
+            <td><strong>Ámbito y Frontera de Red</strong></td>
+            <td><strong>Red de Acceso (Usuario – Red / UNI):</strong> Conecta las instalaciones del abonado (hogares, empresas, routers de borde) con la central local del operador.</td>
+            <td><strong>Red Troncal / Núcleo (Red – Red / NNI):</strong> Interconecta exclusivamente las centrales telefónicas y nodos internos dentro de la infraestructura del operador.</td>
           </tr>
           <tr>
-            <td><strong>Propósito Principal</strong></td>
-            <td>Integrar voz, datos y vídeo digital en un único acceso para el usuario final.</td>
-            <td>Controlar el establecimiento, enrutamiento, tarificación y liberación de llamadas entre centrales.</td>
+            <td><strong>Objetivo Principal</strong></td>
+            <td>Proveer al usuario final un acceso digital integrado capaz de transportar voz, datos y vídeo simultáneamente sobre el bucle local.</td>
+            <td>Controlar el establecimiento, enrutamiento, supervisión, tarificación y liberación de llamadas entre múltiples centrales de conmutación.</td>
           </tr>
           <tr>
-            <td><strong>Señalización</strong></td>
-            <td>Fuera de banda mediante el <strong>Canal D</strong> (protocolos LAPD / Q.931 o DSS1).</td>
-            <td>Por canal común totalmente independiente de los troncales de voz (nodos SSP, STP y SCP).</td>
+            <td><strong>Arquitectura y Elementos</strong></td>
+            <td>Terminales <code>TE1 / TE2</code>, Adaptador <code>TA</code>, Terminaciones de Red <code>NT1 / NT2</code> y puntos de referencia <code>R, S, T, U</code>.</td>
+            <td><strong>SSP</strong> (<em>Service Switching Point</em> - Centrales), <strong>STP</strong> (<em>Signal Transfer Point</em> - Enrutadores de señalización) y <strong>SCP</strong> (<em>Service Control Point</em> - Bases de datos).</td>
           </tr>
           <tr>
-            <td><strong>Interacción</strong></td>
+            <td><strong>Mecanismo de Señalización</strong></td>
+            <td>Señalización fuera de banda a través del <strong>Canal D</strong> (16 o 64 kbps) usando los protocolos <strong>LAPD (Q.921)</strong> y <strong>DSS1 (Q.931)</strong>.</td>
+            <td>Señalización por canal común totalmente independiente de los troncales de voz (64 kbps o enlaces de alta velocidad) mediante <strong>MTP, SCCP, ISUP y TCAP</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Transporte de Datos de Usuario</strong></td>
+            <td><strong>Sí:</strong> Transporta tanto la señalización (Canal D) como la carga útil de voz/datos del usuario (Canales B de 64 kbps).</td>
+            <td><strong>No:</strong> Solo transporta mensajes de control y señalización; la voz o datos viajan por circuitos troncales separados (E1/T1 o fibra).</td>
+          </tr>
+          <tr>
+            <td><strong>Redundancia y Alta Disponibilidad</strong></td>
+            <td>Se logra mediante enlaces múltiples (PRI), canales B de respaldo bajo demanda o topologías en anillo con enrutamiento dinámico (como el diseño OSPF implementado).</td>
+            <td>Arquitectura nativa altamente redundante con pares de nodos <strong>STP</strong> duplicados y enlaces cruzados (A, B, C, D) que garantizan disponibilidad del 99.999 %.</td>
+          </tr>
+          <tr>
+            <td><strong>Interacción en una Llamada Real</strong></td>
             <td colspan="2">
-              Cuando un usuario inicia una llamada RDSI, envía un mensaje <code>SETUP (Q.931)</code> por su <strong>Canal D</strong> hacia la central local; la central traduce esa petición y la enruta a través de la red troncal <strong>SS7</strong> (mensajes ISUP) hasta la central de destino.
+              Cuando un equipo RDSI inicia una comunicación, envía un mensaje <code>SETUP (Q.931)</code> por su <strong>Canal D</strong> hasta la central local. Allí, la central traduce esa solicitud al protocolo <strong>ISUP de SS7</strong> (mensaje <code>IAM</code>) y la enruta a través de los nodos <strong>STP/SSP</strong> de la red troncal SS7 hasta alcanzar la central de destino, la cual vuelve a entregarla al usuario receptor mediante otro acceso RDSI.
             </td>
           </tr>
         </tbody>
@@ -436,27 +690,27 @@
     const rdsiNodesInfo = {
       TE2: {
         title: "TE2 (Terminal Equipo Tipo 2) — Dispositivo No-RDSI",
-        desc: "Equipos convencionales anteriores a RDSI (teléfonos analógicos, faxes G3 o terminales serie RS-232). No entienden protocolos RDSI nativos y requieren conectarse a través de un Adaptador de Terminal (TA) mediante el Punto R."
+        desc: "Equipos convencionales anteriores a RDSI (teléfonos analógicos, faxes G3 o terminales serie). No hablan protocolos RDSI nativos y requieren conectarse a través de un Adaptador de Terminal (TA) mediante el Punto R."
       },
       TA: {
         title: "TA (Adaptador de Terminal) — Conversión de Interfaz",
-        desc: "Convierte las señales analógicas o protocolos no-RDSI provenientes del Punto R al formato digital estándar del Punto S. En Packet Tracer se representa con un adaptador Home VoIP."
+        desc: "Convierte las señales analógicas o protocolos no-RDSI provenientes del Punto R al formato digital estándar del Punto S."
       },
       TE1: {
         title: "TE1 (Terminal Equipo Tipo 1) — Terminal Digital Nativo",
-        desc: "Dispositivos diseñados bajo estándar RDSI (teléfonos digitales RDSI, routers con interfaz BRI, equipos de videoconferencia). Se conectan directamente al Punto S de 4 hilos."
+        desc: "Dispositivos digitales diseñados para operar directamente sobre redes digitales (estaciones de trabajo PC, servidores y teléfonos IP). En nuestro laboratorio corresponden a PC 1–6, SERVER 1, PRINTER 4 e IP PHONE 1–5."
       },
       NT2: {
         title: "NT2 (Terminación de Red 2) — Capas 2 y 3 del Abonado",
-        desc: "Realiza funciones de conmutación local, concentración y multiplexación (como una centralita digital PBX o un switch LAN empresarial). En Packet Tracer corresponde al Switch Catalyst 2960."
+        desc: "Realiza funciones de conmutación local, concentración y distribución interna dentro de cada sucursal. En nuestra topología equivale a los cuatro Switches Cisco Catalyst 2960 (SWITCH 01 a SWITCH 04)."
       },
       NT1: {
-        title: "NT1 (Terminación de Red 1) — Capa Física (OSI 1)",
-        desc: "Adapta la interfaz interna de 4 hilos (Punto T) al par trenzado de 2 hilos del bucle local del operador (Punto U). Gestiona la sincronización de bits y pruebas de bucle. En Packet Tracer se representa con el Router de borde."
+        title: "NT1 (Terminación de Red 1) — Capa Física (Modelo OSI 1)",
+        desc: "Adapta la red interna del abonado (Punto T) hacia el enlace externo del operador (Punto U) y gestiona la sincronización de bits. En Packet Tracer equivale a los cuatro Routers Cisco 2811 (ROUTER01 a ROUTER04)."
       },
       ET: {
-        title: "LT / ET (Terminación de Línea y Central Local)",
-        desc: "En la central telefónica del operador, la LT cierra la capa física del bucle de abonado y la ET procesa los mensajes de señalización Q.931 del Canal D para conmutar los Canales B. En Packet Tracer equivale a la Cloud-PT."
+        title: "LT / ET (Terminación de Línea y Enlace WAN Punto a Punto)",
+        desc: "Representa el medio de transmisión digital sincronizado del operador. En nuestra simulación está implementado mediante los cuatro enlaces seriales HWIC-2T en anillo con reloj DCE a 64 kbps, encapsulación PPP y OSPF."
       },
       SS7: {
         title: "Red SS7 (Sistema de Señalización por Canal Común N.º 7)",
@@ -481,7 +735,7 @@
 
       if (mode === "BRI") {
         capLabel.textContent = "Capacidad útil: 144 kbps (2×64 kbps + 1×16 kbps) | Trama: 192 kbps";
-        svgLabel.textContent = "2B + D (2 hilos)";
+        svgLabel.textContent = "2B + D (64 kbps/ch)";
       } else {
         capLabel.textContent = "Capacidad útil E1: 1.984 Mbps (30×64 kbps + 1×64 kbps) | Trama: 2.048 Mbps";
         svgLabel.textContent = "30B + D (E1 / T1)";
