@@ -341,6 +341,17 @@
       transform: scale(2.015);
     }
 
+    /* Cursor de lupa en las imágenes de la galería */
+    .rdsi-img-slot img {
+      cursor: zoom-in;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .rdsi-img-slot img:hover {
+      opacity: 0.92;
+      transform: scale(1.015);
+    }
+
     /* Modal Lightbox para ampliar imagen */
     .rdsi-lightbox {
       display: none;
@@ -758,6 +769,15 @@
     </div>
   </div>
 
+  <!-- VISOR DE IMAGEN AMPLIADA (LIGHTBOX) -->
+  <div id="rdsi-lightbox" class="rdsi-lightbox" onclick="closeRdsiLightbox(event)">
+    <button class="rdsi-lightbox-close" onclick="closeRdsiLightbox(event, true)">✕ Cerrar</button>
+    <div class="rdsi-lightbox-content" onclick="event.stopPropagation()">
+      <img id="rdsi-lightbox-img" src="" alt="Vista ampliada">
+      <div id="rdsi-lightbox-caption" class="rdsi-lightbox-caption"></div>
+    </div>
+  </div>
+
   <script>
     const rdsiNodesInfo = {
       TE2: {
@@ -813,5 +833,31 @@
         svgLabel.textContent = "30B + D (E1 / T1)";
       }
     }
+
+    // Activar clic para ampliar en todas las imágenes de la galería
+    document.querySelectorAll(".rdsi-img-slot img").forEach(img => {
+      img.addEventListener("click", () => {
+        const lightbox = document.getElementById("rdsi-lightbox");
+        const lbImg = document.getElementById("rdsi-lightbox-img");
+        const lbCap = document.getElementById("rdsi-lightbox-caption");
+
+        lbImg.src = img.src;
+        lbCap.textContent = img.alt || "";
+        lightbox.classList.add("open");
+      });
+    });
+
+    function closeRdsiLightbox(event, force = false) {
+      if (force || event.target.id === "rdsi-lightbox") {
+        document.getElementById("rdsi-lightbox").classList.remove("open");
+      }
+    }
+
+    // Cerrar también al presionar la tecla Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.getElementById("rdsi-lightbox").classList.remove("open");
+      }
+    });
   </script>
 </section>
